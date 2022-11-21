@@ -1,0 +1,411 @@
+club_id,pretty_name,total_market_value,squad_size,average_age,foreigners_number,foreigners_percentage
+1032,Fc Reading,33.66,26,25.9,12,46.2
+2323,Orduspor,,0,,0,
+1387,Acn Siena 1904,4.32,30,26.2,6,20.0
+1071,Wigan Athletic,12.38,29,26.5,14,48.3
+2703,Spartak Vladikavkaz,,1,20.0,0,
+142,Real Saragossa,22.86,24,26.6,5,20.8
+566,Beerschot Ac,,0,,0,
+1436,Sc Beira Mar,135.0,22,27.5,9,40.9
+4750,Sc Olhanense,68.0,22,24.1,9,40.9
+23,Eintracht Braunschweig,6.48,27,24.9,3,11.1
+2227,Sk Tavriya Simferopol,,0,,0,
+12438,Volga Nizhniy Novgorod,,0,,0,
+2292,Elazigspor,563.0,40,23.2,0,
+1210,As Livorno,225.0,25,27.0,0,
+1627,Catania Calcio,6.56,25,26.8,5,20.0
+16245,Fk Sevastopol,,0,,0,
+1423,Fc Valenciennes,18.41,29,25.6,11,37.9
+750,Fc Sochaux Montbeliard,17.51,24,24.8,8,33.3
+1411,Raec Mons,,0,,0,
+5572,Niki Volou,3.4,24,28.0,6,25.0
+20698,Balikesirspor,1.58,30,24.6,9,30.0
+6894,Kayseri Erciyesspor,,0,,0,
+1429,Cesena Fc,6.82,29,24.9,4,13.8
+5220,Gs Ergotelis,3.96,30,22.2,10,33.3
+2783,Metalurg Donetsk,,0,,0,
+204,Lierse Sk,,0,,0,
+993,Fc Cordoba,2.99,24,26.6,2,8.3
+20100,Fc Vestsjaelland,,0,,0,
+1039,Queens Park Rangers,35.06,28,26.5,17,60.7
+3327,Fc Penafiel,4.46,27,27.5,6,22.2
+14171,Thonon Evian Grand Geneve Fc,1.6,20,26.4,4,20.0
+1455,Fc Dordrecht,4.1,26,22.6,11,42.3
+976,Cf Uniao Madeira,,6,22.3,0,
+11126,Mordovia Saransk,,0,,0,
+3558,Gfc Ajaccio,585.0,22,23.9,2,9.1
+6994,Metalurg Zaporizhya Bis 2016 ,,0,,0,
+6996,Goverla Uzhgorod,,0,,0,
+28956,Ael Kalloni,,0,,0,
+4102,Carpi Fc 1909,1.24,31,22.8,6,19.4
+7185,Panthrakikos Komotini,,5,26.2,3,60.0
+3216,Mersin Idmanyurdu,,0,,0,
+825,Eskisehirspor,1.1,21,21.2,2,9.5
+6414,Metalist Kharkiv,,0,,0,
+2439,Kuban Krasnodar,,0,,0,
+2990,Academica Coimbra,4.91,30,26.2,12,40.0
+3691,Tom Tomsk,4.96,23,25.1,2,8.7
+2451,Inverness Caledonian Thistle Fc,4.3,24,24.1,7,29.2
+105,Sv Darmstadt 98,15.37,27,24.8,7,25.9
+4482,Volyn Lutsk,1.73,26,21.9,1,3.8
+339,Dnipro Dnipropetrovsk,,0,,0,
+4795,Fc Ingolstadt 04,11.68,32,25.4,12,37.5
+6,Adanaspor,7.04,27,24.0,11,40.7
+2079,Veria Nps,4.88,29,25.9,5,17.2
+524,Gaziantepspor,,0,,0,
+2921,Delfino Pescara 1936,5.38,28,24.5,6,21.4
+47,Iraklis Thessaloniki,3.4,31,22.8,8,25.8
+458,Palermo Fc,4.39,25,26.2,4,16.0
+289,Afc Sunderland,16.79,27,24.9,13,48.1
+641,Fc Middlesbrough,48.96,26,26.3,9,34.6
+3008,Hull City,19.08,27,24.6,6,22.2
+1159,As Nancy Lorraine,16.88,30,24.2,16,53.3
+2448,Sporting Gijon,25.52,26,25.6,6,23.1
+595,Sc Bastia,8.96,28,27.7,7,25.0
+41,Hamburger Sv,32.9,26,24.0,9,34.6
+3690,Ska Khabarovsk,7.09,27,25.2,4,14.8
+192,Roda Jc Kerkrade,5.83,27,23.0,14,51.9
+1084,Fc Malaga,20.97,28,25.0,6,21.4
+8838,Zirka Kropyvnytskyi,,1,23.0,0,
+22110,Fc Helsingor,4.95,24,25.6,6,25.0
+16247,Pfk Stal Kamyanske,,0,,0,
+2944,Ankaraspor,2.75,30,25.5,2,6.7
+1506,Kardemir Karabukspor,,22,20.5,0,
+21957,Ao Platanias,,0,,0,
+5219,Aok Kerkyra,,7,22.1,2,28.6
+2760,Partick Thistle Fc,4.3,21,26.5,2,9.5
+897,Deportivo La Coruna,6.95,24,26.2,3,12.5
+472,Ud Las Palmas,20.7,27,25.9,6,22.2
+512,Stoke City,53.55,29,26.1,14,48.3
+2288,Swansea City,35.06,23,24.8,21,91.3
+40426,Fk Tosno,,0,,0,
+4128,Amkar Perm,3.67,27,24.1,0,
+498,Ksc Lokeren,,0,,0,
+2700,Anzhi Makhachkala,2.52,27,20.7,0,
+642,De Graafschap Doetinchem,6.23,27,24.1,2,7.4
+19657,Vendsyssel Ff,4.05,25,25.1,9,36.0
+862,Chievo Verona,,0,,0,
+8970,Frosinone Calcio,16.94,30,24.8,11,36.7
+19771,Akhisarspor,1.35,30,22.0,2,6.7
+20,Bursaspor,7.99,31,23.8,9,29.0
+9007,Arsenal Kiew,,0,,0,
+132,Nac Breda,6.44,29,23.6,9,31.0
+855,Ea Guingamp,15.71,26,24.4,7,26.9
+603,Cardiff City,28.44,24,25.6,20,83.3
+1162,Sm Caen,18.14,25,26.1,9,36.0
+1110,Huddersfield Town,33.89,27,26.1,10,37.0
+3714,Enisey Krasnoyarsk,7.25,32,26.1,2,6.3
+42,Hannover 96,18.79,24,26.9,8,33.3
+4,1 Fc Nurnberg,22.93,28,25.3,5,17.9
+3349,Cd Feirense,4.79,29,24.6,17,58.6
+169,Panionios Athen,1.62,28,23.0,7,25.0
+19,Brescia Calcio,32.4,29,25.6,14,48.3
+2722,Spal,23.78,32,25.9,9,28.1
+128,Ao Xanthi,5.36,30,26.3,8,26.7
+5818,Hobro Ik,3.6,29,24.2,4,13.8
+3426,Esbjerg Fb,6.26,35,22.0,15,42.9
+2477,Karpaty Lviv,,0,,0,
+1244,Cd Leganes,32.85,28,27.5,8,28.6
+38,Fortuna Dusseldorf,22.95,28,26.3,8,28.6
+1416,Amiens Sc,20.97,27,24.7,13,48.1
+127,Sc Paderborn 07,15.48,30,24.9,8,26.7
+1085,Vitoria Setubal Fc,2.59,27,25.9,8,29.6
+3336,Desportivo Aves,,0,,0,
+982,Cd Nacional,7.34,29,26.7,14,48.3
+29228,Royal Excel Mouscron,4.21,28,25.9,15,53.6
+1160,Nimes Olympique,27.95,25,24.0,12,48.0
+1426,Vvv Venlo,6.28,27,22.1,7,25.9
+23611,Olimpik Donetsk,,0,,0,
+2999,Hamilton Academical Fc,5.94,28,22.8,7,25.0
+833,Denizlispor,4.43,32,26.1,8,25.0
+39722,Buyuksehir Belediye Erzurumspor,6.1,28,27.6,10,35.7
+4171,Benevento Calcio,27.05,28,26.1,8,28.6
+4083,Fc Crotone,18.83,29,24.1,13,44.8
+130,Parma Calcio 1913,51.84,35,25.3,24,68.6
+820,Genclerbirligi Ankara,7.13,28,24.0,8,28.6
+4603,Ae Larisa,5.24,35,23.8,7,20.0
+1268,Ado Den Haag,5.38,28,23.3,5,17.9
+984,West Bromwich Albion,77.9,26,26.3,9,34.6
+1533,Sd Eibar,26.82,25,28.9,5,20.0
+5358,Sd Huesca,26.64,24,27.6,6,25.0
+350,Sheffield United,84.69,25,27.0,11,44.0
+2969,Dijon Fco,16.61,24,27.0,11,45.8
+28643,Waasland Beveren,8.21,27,25.5,14,51.9
+3609,Rotor Volgograd,7.72,24,25.0,3,12.5
+41201,Pfk Tambov,,0,,0,
+4294,Sc Farense,6.77,30,25.2,19,63.3
+347,Fc Metz,70.16,31,25.5,18,58.1
+65,Spvgg Greuther Furth,28.89,28,24.9,11,39.3
+511,Dundee Fc,6.21,27,26.7,9,33.3
+443,Vejle Boldklub,7.38,26,23.8,19,73.1
+1132,Fc Burnley,114.66,26,29.6,12,46.2
+19789,Yeni Malatyaspor,8.64,26,23.8,10,38.5
+441,Apollon Smyrnis,5.45,32,29.0,20,62.5
+607,Venezia Fc,64.78,30,26.8,21,70.0
+2375,Altay Sk,11.0,29,27.6,11,37.9
+1467,Goztepe,16.9,29,25.5,11,37.9
+126,Caykur Rizespor,17.89,25,27.0,11,44.0
+1390,Cagliari Calcio,95.9,27,26.3,12,44.4
+252,Genua Cfc,88.52,32,25.7,17,53.1
+5817,Sonderjyske,8.21,28,24.6,13,46.4
+16239,Desna Chernigiv,2.81,15,25.2,2,13.3
+6993,Fk Mariupol,4.86,18,22.4,0,
+1123,Norwich City,125.19,37,25.1,23,62.2
+1010,Fc Watford,131.22,34,27.4,29,85.3
+1108,Deportivo Alaves,51.66,26,27.2,7,26.9
+16795,Fc Granada,80.46,29,27.8,13,44.8
+10,Arminia Bielefeld,51.44,25,25.0,16,64.0
+41274,Beerschot V A ,13.41,26,25.9,15,57.7
+979,Moreirense Fc,10.17,26,26.9,18,69.2
+2457,Belenenses Sad,11.7,28,25.1,14,50.0
+3368,Ud Levante,66.51,28,28.5,9,32.1
+403,Willem Ii Tilburg,12.13,27,24.8,17,63.0
+1269,Pec Zwolle,12.22,30,24.6,12,40.0
+1304,Heracles Almelo,13.61,32,23.5,22,68.8
+7179,Cd Tondela,17.51,27,24.8,18,66.7
+3729,Arsenal Tula,15.37,25,28.2,6,24.0
+2698,Rubin Kazan,24.35,22,25.0,4,18.2
+28095,Fk Ufa,15.35,24,26.6,7,29.2
+40,Fc Girondins Bordeaux,75.51,31,25.2,19,61.3
+618,As Saint Etienne,86.67,29,25.3,15,51.7
+294,Benfica Lissabon,,30,25.6,17,56.7
+798,Sbv Excelsior Rotterdam,,23,23.2,8,34.8
+2425,Rio Ave Fc,,26,26.3,13,50.0
+724,Fc Volendam,,28,22.5,11,39.3
+1147,Ac Ajaccio,,29,28.4,15,51.7
+290,Aj Auxerre,,31,26.5,14,45.2
+1531,Fc Elche,,25,28.0,9,36.0
+33,Fc Schalke 04,,28,26.9,14,50.0
+3325,Gd Chaves,,28,25.6,18,64.3
+61825,Fk Minaj,,25,25.5,1,4.0
+80,Vfl Bochum,,29,27.4,17,58.6
+3999,Pas Lamia 1964,,31,28.1,13,41.9
+206,Brondby If,,30,24.2,13,43.3
+8024,Fc Arouca,,26,25.8,20,76.9
+18105,Pfk Lviv,,24,24.2,0,
+7775,Hatayspor,,30,26.6,13,43.3
+989,Afc Bournemouth,,27,26.2,13,48.1
+11688,Giresunspor,,27,25.2,10,37.0
+3522,Spezia Calcio,,27,24.7,22,81.5
+276,Hellas Verona,,30,25.5,16,53.3
+24245,Umraniyespor,,28,27.5,12,42.9
+380,Us Salernitana 1919,,30,25.9,18,60.0
+1005,Us Lecce,,32,23.6,23,71.9
+924,Istanbulspor,,29,25.0,13,44.8
+410,Udinese Calcio,,27,25.2,22,81.5
+6574,Us Sassuolo,,29,25.1,18,62.1
+430,Ac Florenz,,28,25.6,15,53.6
+398,Lazio Rom,,26,26.6,17,65.4
+800,Atalanta Bergamo,,26,26.2,17,65.4
+12,As Rom,,29,25.4,18,62.1
+506,Juventus Turin,,27,26.9,16,59.3
+1038,Sampdoria Genua,,29,26.6,14,48.3
+46,Inter Mailand,,28,27.5,17,60.7
+416,Fc Turin,,28,24.1,22,78.6
+6195,Ssc Neapel,,27,25.6,18,66.7
+749,Fc Empoli,,30,24.4,17,56.7
+2239,Us Cremonese,,31,25.1,17,54.8
+10484,Kasimpasa,,29,26.9,14,48.3
+868,Mke Ankaragucu,,32,27.1,16,50.0
+589,Antalyaspor,,29,27.4,15,51.7
+11282,Alanyaspor,,32,24.9,15,46.9
+3840,Adana Demirspor,,31,27.0,18,58.1
+2293,Konyaspor,,27,26.7,13,48.1
+6890,Istanbul Basaksehir Fk,,31,26.8,17,54.8
+114,Besiktas Istanbul,,29,26.8,15,51.7
+141,Galatasaray Istanbul,,29,25.7,16,55.2
+449,Trabzonspor,,32,25.7,16,50.0
+36,Fenerbahce Istanbul,,30,26.0,16,53.3
+2414,Ac Horsens,,20,25.8,8,40.0
+1063,Viborg Ff,,24,23.5,12,50.0
+1025,Fc Bologna,,30,24.9,20,66.7
+1177,Silkeborg If,,27,24.3,4,14.8
+173,Odense Boldklub,,28,23.3,14,50.0
+5,Ac Mailand,,31,26.2,25,80.6
+1053,Aalborg Bk,,26,23.3,10,38.5
+6646,Fatih Karagumruk,,29,25.9,14,48.3
+2778,Fc Nordsjaelland,,29,21.1,19,65.5
+369,Lyngby Bk,,31,24.1,4,12.9
+190,Fc Kopenhagen,,28,24.6,17,60.7
+5724,Randers Fc,,24,25.5,11,45.8
+399,Leeds United,,26,25.3,19,73.1
+2832,Gaziantep Fk,,28,26.1,16,57.1
+873,Crystal Palace,,24,27.0,13,54.2
+2381,Sivasspor,,29,28.5,16,55.2
+1237,Brighton Amp Hove Albion,,23,25.0,16,69.6
+180,Fc Southampton,,24,25.0,16,66.7
+543,Wolverhampton Wanderers,,24,25.7,23,95.8
+931,Fc Fulham,,24,27.6,20,83.3
+1003,Leicester City,,26,27.3,17,65.4
+2919,Ac Monza,,37,26.5,10,27.0
+762,Newcastle United,,28,27.6,16,57.1
+678,Aarhus Gf,,23,25.2,9,39.1
+148,Tottenham Hotspur,,25,26.2,17,68.0
+11,Fc Arsenal,,23,24.5,16,69.6
+405,Aston Villa,,26,27.2,17,65.4
+631,Fc Chelsea,,25,26.6,16,64.0
+31,Fc Liverpool,,27,26.8,19,70.4
+281,Manchester City,,23,27.3,16,69.6
+985,Manchester United,,30,26.1,19,63.3
+2671,Pas Giannina,,28,24.4,13,46.4
+3205,Kayserispor,,32,25.8,15,46.9
+2672,Apo Levadiakos,,29,27.2,17,58.6
+6418,Panetolikos Gfs,,28,25.6,12,42.9
+1148,Fc Brentford,,24,25.8,18,75.0
+60949,Volos Nps,,29,25.7,17,58.6
+6676,Asteras Tripolis,,33,26.8,23,69.7
+605,Aris Thessaloniki,,29,25.7,22,75.9
+265,Panathinaikos Athen,,29,26.9,19,65.5
+379,West Ham United,,24,27.8,18,75.0
+2441,Aek Athen,,30,27.3,18,60.0
+683,Olympiakos Piraus,,39,27.4,28,71.8
+3060,Atromitos Athen,,28,25.7,14,50.0
+83678,Metal Kharkiv,,26,26.5,2,7.7
+1091,Paok Thessaloniki,,33,25.3,23,69.7
+55686,Metalist 1925 Kharkiv,,26,25.4,2,7.7
+49364,Ingulets Petrove,,27,26.5,2,7.4
+6992,Chornomorets Odessa,,27,27.6,5,18.5
+3592,Kryvbas Kryvyi Rig,,27,25.6,4,14.8
+553,Ionikos Nikeas,,28,27.7,16,57.1
+18303,Fk Oleksandriya,,27,23.8,1,3.7
+26459,Nk Veres Rivne,,21,27.7,0,
+865,Fc Midtjylland,,27,24.1,15,55.6
+48726,Rukh Lviv,,26,22.9,4,15.4
+60551,Sk Dnipro 1,,27,25.7,8,29.6
+338,Dynamo Kiew,,33,24.8,5,15.2
+660,Shakhtar Donetsk,,29,24.7,4,13.8
+465,St Mirren Fc,,22,26.5,12,54.5
+48332,Kolos Kovalivka,,25,27.0,2,8.0
+10690,Zorya Lugansk,,29,23.7,1,3.4
+2740,Vorskla Poltava,,27,25.6,8,29.6
+653,Ofi Kreta,,32,26.3,15,46.9
+703,Nottingham Forest,,32,26.3,20,62.5
+2759,Ross County Fc,,26,24.9,19,73.1
+903,Hibernian Fc,,27,24.8,18,66.7
+43,Heart Of Midlothian Fc,,28,26.5,13,46.4
+29,Fc Everton,,27,27.6,13,48.1
+124,Glasgow Rangers,,32,26.4,22,68.8
+371,Celtic Glasgow,,27,25.9,19,70.4
+3,1 Fc Koln,,30,24.9,11,36.7
+167,Fc Augsburg,,29,26.2,14,48.3
+44,Hertha Bsc,,32,25.3,19,59.4
+1241,Livingston Fc,,24,26.8,13,54.2
+89,1 Fc Union Berlin,,29,26.6,13,44.8
+79,Vfb Stuttgart,,27,22.9,14,51.9
+987,Motherwell Fc,,24,26.1,14,58.3
+60,Sc Freiburg,,28,25.5,11,39.3
+2578,St Johnstone Fc,,29,27.0,14,48.3
+370,Aberdeen Fc,,24,24.6,18,75.0
+24,Eintracht Frankfurt,,30,24.8,19,63.3
+15,Bayer 04 Leverkusen,,28,24.5,20,71.4
+86,Sv Werder Bremen,,28,24.5,10,35.7
+16,Borussia Dortmund,,32,24.4,16,50.0
+27,Fc Bayern Munchen,,24,25.6,14,58.3
+366,Real Valladolid,,25,27.7,10,40.0
+2687,Fc Cadiz,,27,28.6,9,33.3
+2553,Kilmarnock Fc,,30,25.9,17,56.7
+23826,Rasenballsport Leipzig,,26,25.3,17,65.4
+714,Espanyol Barcelona,,23,25.7,6,26.1
+367,Rayo Vallecano,,27,28.2,10,37.0
+237,Rcd Mallorca,,25,27.8,15,60.0
+82,Vfl Wolfsburg,,28,24.7,16,57.1
+533,Tsg 1899 Hoffenheim,,28,25.5,14,50.0
+3709,Fc Getafe,,24,27.3,12,50.0
+3302,Ud Almeria,,28,25.4,13,46.4
+18,Borussia Monchengladbach,,28,25.5,15,53.6
+1049,Fc Valencia,,25,24.5,14,56.0
+150,Real Betis Sevilla,,27,28.5,12,44.4
+1050,Fc Villarreal,,25,28.0,11,44.0
+681,Real Sociedad San Sebastian,,27,24.8,5,18.5
+13,Atletico Madrid,,22,27.9,16,72.7
+12321,Fc Girona,,26,26.0,9,34.6
+940,Celta Vigo,,22,26.0,9,40.9
+2715,Rfc Seraing,,29,23.4,20,69.0
+3508,Sv Zulte Waregem,,30,24.3,19,63.3
+1245,Kas Eupen,,32,22.9,22,68.8
+475,Vv St Truiden,,24,26.6,13,54.2
+2861,Kv Oostende,,29,23.4,16,55.2
+131,Fc Barcelona,,25,25.4,10,40.0
+601,Kv Kortrijk,,30,25.2,21,70.0
+418,Real Madrid,,23,27.4,16,69.6
+968,Kvc Westerlo,,28,25.7,17,60.7
+39,1 Fsv Mainz 05,,27,24.4,12,44.4
+368,Fc Sevilla,,26,28.2,18,69.2
+331,Ca Osasuna,,24,27.6,5,20.8
+3057,Standard Luttich,,29,23.6,16,55.2
+1519,Dundee United Fc,,25,25.7,11,44.0
+2727,Oud Heverlee Leuven,,26,24.9,14,53.8
+58,Rsc Anderlecht,,29,23.3,13,44.8
+1184,Krc Genk,,28,22.7,18,64.3
+3948,Royale Union Saint Gilloise,,24,24.8,17,70.8
+3524,Clermont Foot 63,,26,26.0,16,61.5
+621,Athletic Bilbao,,25,27.3,1,4.0
+2282,Fc Brugge,,31,24.2,20,64.5
+354,Kv Mechelen,,27,25.1,10,37.0
+3911,Stade Brest 29,,24,25.1,10,41.7
+1095,Es Troyes Ac,,29,25.0,16,55.2
+1096,Royal Antwerpen Fc,,29,25.2,16,55.2
+667,Rc Strassburg Alsace,,25,26.4,9,36.0
+995,Fc Nantes,,28,25.8,10,35.7
+969,Montpellier Hsc,,28,25.0,10,35.7
+520,Cercle Brugge,,27,23.3,18,66.7
+1420,Sco Angers,,33,24.5,16,48.5
+417,Ogc Nizza,,28,25.0,18,64.3
+244,Olympique Marseille,,27,24.7,18,66.7
+415,Fc Toulouse,,26,24.0,21,80.8
+273,Fc Stade Rennes,,29,23.7,12,41.4
+162,As Monaco,,28,23.7,28,100.0
+1421,Stade Reims,,27,24.1,18,66.7
+1041,Olympique Lyon,,27,25.0,9,33.3
+14589,Fk Orenburg,,27,24.9,13,48.1
+1186,Torpedo Moskau,,27,27.3,10,37.0
+826,Rc Lens,,25,25.4,16,64.0
+3719,Fk Khimki,,25,26.1,4,16.0
+11127,Ural Ekaterinburg,,30,26.6,11,36.7
+3725,Akhmat Grozny,,27,26.1,6,22.2
+157,Kaa Gent,,28,25.8,14,50.0
+1082,Losc Lille,,25,24.9,16,64.0
+1083,Fk Rostov,,26,24.3,3,11.5
+583,Fc Paris Saint Germain,,28,25.4,18,64.3
+2410,Zska Moskau,,27,24.2,10,37.0
+932,Lokomotiv Moskau,,25,23.4,8,32.0
+232,Spartak Moskau,,26,24.7,7,26.9
+121,Dinamo Moskau,,22,24.5,8,36.4
+964,Zenit St Petersburg,,23,26.5,11,47.8
+16704,Fk Krasnodar,,27,23.4,9,33.3
+2696,Krylya Sovetov Samara,,27,23.9,6,22.2
+1283,Fc Emmen,,30,24.8,13,43.3
+468,Sparta Rotterdam,,24,26.3,10,41.7
+133,Sc Cambuur Leeuwarden,,27,24.5,10,37.0
+467,Nec Nijmegen,,26,23.8,10,38.5
+1124,Fakel Voronezh,,25,27.4,0,
+172,Rsc Charleroi,,24,23.6,14,58.3
+306,Sc Heerenveen,,22,23.8,11,50.0
+499,Vitesse Arnheim,,27,22.6,13,48.1
+1158,Fc Lorient,,27,24.1,13,48.1
+1435,Go Ahead Eagles Deventer,,29,23.7,11,37.9
+1090,Az Alkmaar,,26,22.7,11,42.3
+234,Feyenoord Rotterdam,,27,23.1,17,63.0
+383,Psv Eindhoven,,29,24.1,17,58.6
+610,Ajax Amsterdam,,27,24.8,11,40.7
+202,Fc Groningen,,26,23.0,13,50.0
+49702,Fk Nizhny Novgorod,,27,24.7,5,18.5
+41231,Fk Sochi,,26,27.2,6,23.1
+7378,Portimonense Sc,,30,24.0,22,73.3
+3268,Casa Pia Ac,,30,26.6,21,70.0
+1301,Cs Maritimo,,31,25.3,19,61.3
+235,Rkc Waalwijk,,26,25.7,15,57.7
+1465,Gd Estoril Praia,,26,23.7,12,46.2
+2424,Gil Vicente Fc,,28,25.5,19,67.9
+200,Fc Utrecht,,31,25.1,13,41.9
+2420,Vitoria Guimaraes Sc,,28,23.8,14,50.0
+1075,Sc Braga,,27,24.3,15,55.6
+336,Sporting Lissabon,,28,24.5,15,53.6
+720,Fc Porto,,27,26.3,15,55.6
+3329,Fc Famalicao,,26,24.5,16,61.5
+2503,Boavista Porto Fc,,30,24.6,17,56.7
+2423,Cd Santa Clara,,32,24.7,20,62.5
+385,Fortuna Sittard,,25,25.5,17,68.0
+317,Fc Twente Enschede,,27,24.3,10,37.0
+2995,Fc Pacos De Ferreira,,29,24.4,16,55.2
+6912,Fc Vizela,,28,24.4,20,71.4
