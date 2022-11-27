@@ -4,10 +4,16 @@ import { Input, Text } from "../../ui";
 
 import * as Styles from "./styles";
 
-const options = {
-  one: "One",
-  two: "Two",
-  three: "Three",
+const compareOptions = {
+  greater: ">",
+  less: "<",
+  equal: "=",
+};
+
+const olympicOptions = {
+  bronze: "Bronze",
+  silver: "Silver",
+  gold: "Gold",
 };
 
 const getOption = (value) => {
@@ -15,21 +21,87 @@ const getOption = (value) => {
 };
 
 export const Home = () => {
+  const [games, setGames] = useState(0);
+  const [gamesCompare, setGamesCompare] = useState(compareOptions.greater);
+  const [goals, setGoals] = useState(0);
+  const [goalsCompare, setGoalsCompare] = useState(compareOptions.greater);
+  const [assists, setAssists] = useState(0);
+  const [assistsCompare, setAssistsCompare] = useState(compareOptions.greater);
+  const [minutes, setMinutes] = useState(0);
+  const [minutesCompare, setMinutesCompare] = useState(compareOptions.greater);
+  const [yellowCards, setYellowCards] = useState(0);
+  const [yellowCardsCompare, setYellowCardsCompare] = useState(
+    compareOptions.greater
+  );
+  const [redCards, setRedCards] = useState(0);
+  const [redCardsCompare, setRedCardsCompare] = useState(
+    compareOptions.greater
+  );
+  const [olympicMedals, setOlympicMedals] = useState(null);
   return (
     <Styles.Container>
       <Styles.Content>
         <Styles.SortFilterContainer>
           <Styles.SortFilterColumn>
-            <Filter label="Filter 1" />
-            <Filter label="Filter 4" isMulti />
+            <NumericFilter
+              label="Games Played"
+              value={games}
+              setValue={setGames}
+              compareValue={gamesCompare}
+              setCompareValue={setGamesCompare}
+            />
+            <NumericFilter
+              label="Avg. Minutes"
+              value={minutes}
+              setValue={setMinutes}
+              compareValue={minutesCompare}
+              setCompareValue={setMinutesCompare}
+            />
+            <Text type="text-t2">Olympic Medals</Text>
+            <Select
+              isMulti
+              options={Object.values(olympicOptions).map(getOption)}
+              value={olympicMedals?.map(getOption)}
+              onChange={(option) =>
+                setOlympicMedals(option?.map((o) => o.value))
+              }
+              components={{
+                DropdownIndicator: () => null,
+                IndicatorSeparator: () => null,
+              }}
+            />
           </Styles.SortFilterColumn>
           <Styles.SortFilterColumn>
-            <Filter label="Filter 2" />
-            <Filter label="Filter 5" />
+            <NumericFilter
+              label="Goals"
+              value={goals}
+              setValue={setGoals}
+              compareValue={goalsCompare}
+              setCompareValue={setGoalsCompare}
+            />
+            <NumericFilter
+              label="Yellow Cards"
+              value={yellowCards}
+              setValue={setYellowCards}
+              compareValue={yellowCardsCompare}
+              setCompareValue={setYellowCardsCompare}
+            />
           </Styles.SortFilterColumn>
           <Styles.SortFilterColumn>
-            <Filter label="Filter 3" />
-            <Filter label="Filter 6" />
+            <NumericFilter
+              label="Assists"
+              value={assists}
+              setValue={setAssists}
+              compareValue={assistsCompare}
+              setCompareValue={setAssistsCompare}
+            />
+            <NumericFilter
+              label="Red Cards"
+              value={redCards}
+              setValue={setRedCards}
+              compareValue={redCardsCompare}
+              setCompareValue={setRedCardsCompare}
+            />
           </Styles.SortFilterColumn>
         </Styles.SortFilterContainer>
         <Input placeholder="Search Player Name" />
@@ -64,23 +136,34 @@ export const Home = () => {
   );
 };
 
-const Filter = ({ label, isMulti = false }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const NumericFilter = ({
+  label,
+  value,
+  setValue,
+  compareValue,
+  setCompareValue,
+}) => {
   return (
     <>
       <Text type="text-t2">{label}:</Text>
-      <Select
-        isMulti={isMulti}
-        options={Object.values(options).map(getOption)}
-        value={
-          isMulti ? selectedOption?.map(getOption) : getOption(selectedOption)
-        }
-        onChange={(option) =>
-          isMulti
-            ? setSelectedOption(option?.map(({ value }) => value))
-            : setSelectedOption(option.value)
-        }
-      />
+      <Styles.NumericFilterContainer>
+        <Select
+          options={Object.values(compareOptions).map(getOption)}
+          value={getOption(compareValue)}
+          onChange={(option) => setCompareValue(option.value)}
+          components={{
+            DropdownIndicator: () => null,
+            IndicatorSeparator: () => null,
+          }}
+        />
+        <Input
+          placeholder="0"
+          type="number"
+          min={0}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </Styles.NumericFilterContainer>
     </>
   );
 };

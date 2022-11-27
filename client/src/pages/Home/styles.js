@@ -36,6 +36,14 @@ export const SortFilterColumn = styled.div`
   height: fit-content;
 `;
 
+export const NumericFilterContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-gap: 20px;
+  align-items: center;
+`;
+
 export const PlayerTable = styled.div`
   width: 100%;
   display: grid;
