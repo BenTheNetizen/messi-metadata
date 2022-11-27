@@ -23,6 +23,7 @@ CREATE TABLE club_stats (
     goals          NUMERIC,
     assists        NUMERIC,
     minutes_played NUMERIC,
+    games_played   NUMERIC,
     pretty_name    VARCHAR
 );
 .import --csv --skip 1 data/club_stats.csv club_stats
@@ -55,6 +56,7 @@ CREATE TABLE player_stats (
     goals              NUMERIC,
     assists            NUMERIC,
     minutes_played     NUMERIC,
+    games_played       NUMERIC,
     olympic            VARCHAR
 );
 .import --csv --skip 1 data/player_stats.csv player_stats

@@ -63,6 +63,7 @@ olympic["Name"] = (
 # Prepare datetime for group by year
 appearance["date"] = pd.to_datetime(appearance["date"])
 appearance["year"] = appearance["date"].dt.year.astype("Int64", errors="ignore")
+appearance["games_played"] = 1
 
 # Match olympic player name
 p = appearance.player_pretty_name.isin(olympic.Name)
@@ -85,6 +86,7 @@ player_stats = (
             "goals": "sum",
             "assists": "sum",
             "minutes_played": "mean",
+            "games_played": "sum",
         }
     )
     .reset_index()
@@ -124,6 +126,7 @@ club_stats = (
             "goals": "sum",
             "assists": "sum",
             "minutes_played": "mean",
+            "games_played": "sum",
         }
     )
     .reset_index()
