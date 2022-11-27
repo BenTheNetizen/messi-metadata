@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
     if (err) {
       throw err;
     }
-    res.send(rows);
+    res.json(rows);
   });
 });
 
