@@ -47,7 +47,7 @@ export const NumericFilterContainer = styled.div`
 export const PlayerTable = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(11, 1fr);
   margin-top: 40px;
 
   * {

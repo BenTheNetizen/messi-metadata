@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import dayjs from "dayjs";
 import _ from "lodash-es";
 import Select from "react-select";
 import { Input, Text } from "../../ui";
@@ -44,8 +45,6 @@ export const Home = () => {
     setPlayers(res || []);
   };
 
-  console.log(players);
-
   const searchDebounced = useCallback(_.debounce(search, 500), []);
 
   useEffect(() => {
@@ -80,7 +79,9 @@ export const Home = () => {
     redCardsCompare,
     olympicMedals,
     nameQuery,
+    searchDebounced,
   ]);
+  console.log(players);
 
   return (
     <Styles.Container>
@@ -154,18 +155,40 @@ export const Home = () => {
         <Styles.PlayerTable>
           <Text type="display-h3">Name</Text>
           <Text type="display-h3">Club</Text>
+          <Text type="display-h3">Age</Text>
+          <Text type="display-h3">Country</Text>
           <Text type="display-h3">Games Played</Text>
           <Text type="display-h3">Goals</Text>
           <Text type="display-h3">Assists</Text>
-          <Text type="display-h3">Minutes Played</Text>
+          <Text type="display-h3">Avg Minutes</Text>
+          <Text type="display-h3">Yellow Cards</Text>
+          <Text type="display-h3">Red Cards</Text>
+          <Text type="display-h3">Olympic Medals</Text>
           {players.map((player) => (
             <>
               <Text type="text-t2">{player.pretty_name}</Text>
               <Text type="text-t2">{player.club_pretty_name}</Text>
+              <Text type="text-t2">
+                {dayjs().diff(player.date_of_birth, "years")}
+              </Text>
+              <Text type="text-t2">{player.country_of_citizenship}</Text>
               <Text type="text-t2">{player.games_played}</Text>
               <Text type="text-t2">{player.goals}</Text>
               <Text type="text-t2">{player.assists}</Text>
-              <Text type="text-t2">{player.minutes_played}</Text>
+              <Text type="text-t2">
+                {Math.round(player.minutes_played * 10) / 10}
+              </Text>
+              <Text type="text-t2">{player.yellow_cards}</Text>
+              <Text type="text-t2">{player.red_cards}</Text>
+              <Text type="text-t2">
+                {player.olympic
+                  ? JSON.parse(player.olympic)
+                      .map((medal) =>
+                        medal.replace("Summer-Football Men's Football-", "")
+                      )
+                      .join(", ")
+                  : "none"}
+              </Text>
             </>
           ))}
         </Styles.PlayerTable>
