@@ -1,43 +1,87 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import _ from "lodash-es";
 import Select from "react-select";
 import { Input, Text } from "../../ui";
+import { API } from "../../util";
 
 import * as Styles from "./styles";
 
-const compareOptions = {
-  greater: ">",
-  less: "<",
-  equal: "=",
-};
+const compareOptions = [
+  { value: ">=", label: "≥" },
+  { value: "<=", label: "≤" },
+  { value: ">", label: ">" },
+  { value: "<", label: "<" },
+  { value: "=", label: "=" },
+];
 
-const olympicOptions = {
-  bronze: "Bronze",
-  silver: "Silver",
-  gold: "Gold",
-};
-
-const getOption = (value) => {
-  return value ? { value, label: value } : null;
-};
+const olympicOptions = [
+  { value: "gold", label: "Gold" },
+  { value: "silver", label: "Silver" },
+  { value: "bronze", label: "Bronze" },
+];
 
 export const Home = () => {
   const [games, setGames] = useState(0);
-  const [gamesCompare, setGamesCompare] = useState(compareOptions.greater);
+  const [gamesCompare, setGamesCompare] = useState(compareOptions[0]);
   const [goals, setGoals] = useState(0);
-  const [goalsCompare, setGoalsCompare] = useState(compareOptions.greater);
+  const [goalsCompare, setGoalsCompare] = useState(compareOptions[0]);
   const [assists, setAssists] = useState(0);
-  const [assistsCompare, setAssistsCompare] = useState(compareOptions.greater);
+  const [assistsCompare, setAssistsCompare] = useState(compareOptions[0]);
   const [minutes, setMinutes] = useState(0);
-  const [minutesCompare, setMinutesCompare] = useState(compareOptions.greater);
+  const [minutesCompare, setMinutesCompare] = useState(compareOptions[0]);
   const [yellowCards, setYellowCards] = useState(0);
   const [yellowCardsCompare, setYellowCardsCompare] = useState(
-    compareOptions.greater
+    compareOptions[0]
   );
   const [redCards, setRedCards] = useState(0);
-  const [redCardsCompare, setRedCardsCompare] = useState(
-    compareOptions.greater
-  );
+  const [redCardsCompare, setRedCardsCompare] = useState(compareOptions[0]);
   const [olympicMedals, setOlympicMedals] = useState(null);
+  const [nameQuery, setNameQuery] = useState("");
+  const [players, setPlayers] = useState([]);
+
+  const search = async (params) => {
+    const res = await API.searchPlayers(params);
+    setPlayers(res || []);
+  };
+
+  console.log(players);
+
+  const searchDebounced = useCallback(_.debounce(search, 500), []);
+
+  useEffect(() => {
+    searchDebounced({
+      games,
+      gamesCompare: gamesCompare.value,
+      goals,
+      goalsCompare: goalsCompare.value,
+      assists,
+      assistsCompare: assistsCompare.value,
+      minutes,
+      minutesCompare: minutesCompare.value,
+      yellowCards,
+      yellowCardsCompare: yellowCardsCompare.value,
+      redCards,
+      redCardsCompare: redCardsCompare.value,
+      olympicMedals: olympicMedals?.map((option) => option.value),
+      nameQuery,
+    });
+  }, [
+    games,
+    gamesCompare,
+    goals,
+    goalsCompare,
+    assists,
+    assistsCompare,
+    minutes,
+    minutesCompare,
+    yellowCards,
+    yellowCardsCompare,
+    redCards,
+    redCardsCompare,
+    olympicMedals,
+    nameQuery,
+  ]);
+
   return (
     <Styles.Container>
       <Styles.Content>
@@ -60,11 +104,9 @@ export const Home = () => {
             <Text type="text-t2">Olympic Medals</Text>
             <Select
               isMulti
-              options={Object.values(olympicOptions).map(getOption)}
-              value={olympicMedals?.map(getOption)}
-              onChange={(option) =>
-                setOlympicMedals(option?.map((o) => o.value))
-              }
+              options={olympicOptions}
+              value={olympicMedals}
+              onChange={(options) => setOlympicMedals(options)}
               components={{
                 DropdownIndicator: () => null,
                 IndicatorSeparator: () => null,
@@ -104,32 +146,28 @@ export const Home = () => {
             />
           </Styles.SortFilterColumn>
         </Styles.SortFilterContainer>
-        <Input placeholder="Search Player Name" />
+        <Input
+          placeholder="Search Player Name"
+          value={nameQuery}
+          onChange={(e) => setNameQuery(e.target.value)}
+        />
         <Styles.PlayerTable>
           <Text type="display-h3">Name</Text>
           <Text type="display-h3">Club</Text>
-          <Text type="display-h3">Column 3</Text>
-          <Text type="display-h3">Column 4</Text>
-          <Text type="display-h3">Column 5</Text>
-          <Text type="display-h3">Column 6</Text>
-          <Text type="text-t2">Messi</Text>
-          <Text type="text-t2">Barcelona</Text>
-          <Text type="text-t2">Data 3</Text>
-          <Text type="text-t2">Data 4</Text>
-          <Text type="text-t2">Data 5</Text>
-          <Text type="text-t2">Data 6</Text>
-          <Text type="text-t2">Ronaldo</Text>
-          <Text type="text-t2">Juventus</Text>
-          <Text type="text-t2">Data 3</Text>
-          <Text type="text-t2">Data 4</Text>
-          <Text type="text-t2">Data 5</Text>
-          <Text type="text-t2">Data 6</Text>
-          <Text type="text-t2">Neymar</Text>
-          <Text type="text-t2">PSG</Text>
-          <Text type="text-t2">Data 3</Text>
-          <Text type="text-t2">Data 4</Text>
-          <Text type="text-t2">Data 5</Text>
-          <Text type="text-t2">Data 6</Text>
+          <Text type="display-h3">Games Played</Text>
+          <Text type="display-h3">Goals</Text>
+          <Text type="display-h3">Assists</Text>
+          <Text type="display-h3">Minutes Played</Text>
+          {players.map((player) => (
+            <>
+              <Text type="text-t2">{player.pretty_name}</Text>
+              <Text type="text-t2">{player.club_pretty_name}</Text>
+              <Text type="text-t2">{player.games_played}</Text>
+              <Text type="text-t2">{player.goals}</Text>
+              <Text type="text-t2">{player.assists}</Text>
+              <Text type="text-t2">{player.minutes_played}</Text>
+            </>
+          ))}
         </Styles.PlayerTable>
       </Styles.Content>
     </Styles.Container>
@@ -148,9 +186,9 @@ const NumericFilter = ({
       <Text type="text-t2">{label}:</Text>
       <Styles.NumericFilterContainer>
         <Select
-          options={Object.values(compareOptions).map(getOption)}
-          value={getOption(compareValue)}
-          onChange={(option) => setCompareValue(option.value)}
+          options={compareOptions}
+          value={compareValue}
+          onChange={(option) => setCompareValue(option)}
           components={{
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,

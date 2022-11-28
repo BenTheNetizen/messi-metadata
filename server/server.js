@@ -17,11 +17,48 @@ let db = new sqlite3.Database(
 );
 
 app.use(express.json());
+
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.post("/search", (req, res) => {
   // return first 10 rows
-  db.all("SELECT * FROM player_cleaned LIMIT 10", (err, rows) => {
+  const {
+    games,
+    gamesCompare,
+    goals,
+    goalsCompare,
+    assists,
+    assistsCompare,
+    minutes,
+    minutesCompare,
+    yellowCards,
+    yellowCardsCompare,
+    redCards,
+    redCardsCompare,
+    olympicMedals,
+    nameQuery,
+  } = req.body;
+  const query = `
+    SELECT pretty_name, club_pretty_name, date_of_birth, country_of_citizenship, position, SUM(games_played) as games_played, SUM(goals) as goals, SUM(assists) as assists, AVG(minutes_played) as minutes_played, SUM(yellow_cards) as yellow_cards, SUM(red_cards) as red_cards, olympic
+    FROM player_cleaned INNER JOIN player_stats
+    ON player_cleaned.player_id = player_stats.player_id
+    WHERE 1=1
+      ${
+        olympicMedals
+          ? olympicMedals.map((medal) => `AND olympic like "%${medal}%"`)
+          : ""
+      }
+      ${nameQuery ? `AND pretty_name like "%${nameQuery}%"` : ""}
+    GROUP BY player_cleaned.player_id
+    HAVING
+      ${`SUM(games_played) ${gamesCompare} ${games || 0}`}
+      AND ${`SUM(goals) ${goalsCompare} ${goals || 0}`}
+      AND ${`SUM(assists) ${assistsCompare} ${assists || 0}`}
+      AND ${`AVG(minutes_played) ${minutesCompare} ${minutes || 0}`}
+      AND ${`SUM(yellow_cards) ${yellowCardsCompare} ${yellowCards || 0}`}
+      AND ${`SUM(red_cards) ${redCardsCompare} ${redCards || 0}`}
+    LIMIT 10`;
+  db.all(query, (err, rows) => {
     if (err) {
       throw err;
     }
