@@ -37,6 +37,7 @@ app.post("/search", (req, res) => {
     redCardsCompare,
     olympicMedals,
     nameQuery,
+    page,
   } = req.body;
   const query = `
     SELECT pretty_name, club_pretty_name, date_of_birth, country_of_citizenship, position, SUM(games_played) as games_played, SUM(goals) as goals, SUM(assists) as assists, AVG(minutes_played) as minutes_played, SUM(yellow_cards) as yellow_cards, SUM(red_cards) as red_cards, olympic
@@ -57,7 +58,8 @@ app.post("/search", (req, res) => {
       AND ${`AVG(minutes_played) ${minutesCompare} ${minutes || 0}`}
       AND ${`SUM(yellow_cards) ${yellowCardsCompare} ${yellowCards || 0}`}
       AND ${`SUM(red_cards) ${redCardsCompare} ${redCards || 0}`}
-    LIMIT 10`;
+    ORDER BY pretty_name ASC
+    LIMIT 10 OFFSET ${(page - 1) * 10}`;
   db.all(query, (err, rows) => {
     if (err) {
       throw err;

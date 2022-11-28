@@ -17,13 +17,19 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  align-items: center;
+
+  > :not(:last-child) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const SortFilterContainer = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  margin-bottom: 20px;
 `;
 
 export const SortFilterColumn = styled.div`
@@ -44,11 +50,21 @@ export const NumericFilterContainer = styled.div`
   align-items: center;
 `;
 
+export const PageContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  > :not(:last-child) {
+    margin-right: 8px;
+  }
+`;
+
 export const PlayerTable = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(11, 1fr);
-  margin-top: 40px;
 
   * {
     padding: 10px;

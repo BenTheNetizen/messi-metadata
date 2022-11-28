@@ -39,13 +39,23 @@ export const Home = () => {
   const [olympicMedals, setOlympicMedals] = useState(null);
   const [nameQuery, setNameQuery] = useState("");
   const [players, setPlayers] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   const search = async (params) => {
+    setLoading(true);
     const res = await API.searchPlayers(params);
+    setLoading(false);
     setPlayers(res || []);
   };
 
-  const searchDebounced = useCallback(_.debounce(search, 500), []);
+  const searchDebounced = useCallback(
+    _.debounce(search, 500, {
+      leading: true,
+      trailing: true,
+    }),
+    []
+  );
 
   useEffect(() => {
     searchDebounced({
@@ -63,7 +73,28 @@ export const Home = () => {
       redCardsCompare: redCardsCompare.value,
       olympicMedals: olympicMedals?.map((option) => option.value),
       nameQuery,
+      page,
     });
+  }, [
+    games,
+    gamesCompare,
+    goals,
+    goalsCompare,
+    assists,
+    assistsCompare,
+    minutes,
+    minutesCompare,
+    yellowCards,
+    yellowCardsCompare,
+    redCards,
+    redCardsCompare,
+    olympicMedals,
+    nameQuery,
+    searchDebounced,
+    page,
+  ]);
+  useEffect(() => {
+    setPage(1);
   }, [
     games,
     gamesCompare,
@@ -152,6 +183,21 @@ export const Home = () => {
           value={nameQuery}
           onChange={(e) => setNameQuery(e.target.value)}
         />
+        <Styles.PageContainer>
+          <button
+            disabled={page === 1}
+            onClick={() => setPage((prev) => prev - 1)}
+          >
+            {"<"}
+          </button>
+          <div>{page}</div>
+          <button
+            disabled={players.length !== 10}
+            onClick={() => setPage((prev) => prev + 1)}
+          >
+            {">"}
+          </button>
+        </Styles.PageContainer>
         <Styles.PlayerTable>
           <Text type="display-h3">Name</Text>
           <Text type="display-h3">Club</Text>
@@ -164,34 +210,37 @@ export const Home = () => {
           <Text type="display-h3">Yellow Cards</Text>
           <Text type="display-h3">Red Cards</Text>
           <Text type="display-h3">Olympic Medals</Text>
-          {players.map((player) => (
-            <>
-              <Text type="text-t2">{player.pretty_name}</Text>
-              <Text type="text-t2">{player.club_pretty_name}</Text>
-              <Text type="text-t2">
-                {dayjs().diff(player.date_of_birth, "years")}
-              </Text>
-              <Text type="text-t2">{player.country_of_citizenship}</Text>
-              <Text type="text-t2">{player.games_played}</Text>
-              <Text type="text-t2">{player.goals}</Text>
-              <Text type="text-t2">{player.assists}</Text>
-              <Text type="text-t2">
-                {Math.round(player.minutes_played * 10) / 10}
-              </Text>
-              <Text type="text-t2">{player.yellow_cards}</Text>
-              <Text type="text-t2">{player.red_cards}</Text>
-              <Text type="text-t2">
-                {player.olympic
-                  ? JSON.parse(player.olympic)
-                      .map((medal) =>
-                        medal.replace("Summer-Football Men's Football-", "")
-                      )
-                      .join(", ")
-                  : "none"}
-              </Text>
-            </>
-          ))}
+          {!loading &&
+            players.map((player) => (
+              <>
+                <Text type="text-t2">{player.pretty_name}</Text>
+                <Text type="text-t2">{player.club_pretty_name}</Text>
+                <Text type="text-t2">
+                  {dayjs().diff(player.date_of_birth, "years")}
+                </Text>
+                <Text type="text-t2">{player.country_of_citizenship}</Text>
+                <Text type="text-t2">{player.games_played}</Text>
+                <Text type="text-t2">{player.goals}</Text>
+                <Text type="text-t2">{player.assists}</Text>
+                <Text type="text-t2">
+                  {Math.round(player.minutes_played * 10) / 10}
+                </Text>
+                <Text type="text-t2">{player.yellow_cards}</Text>
+                <Text type="text-t2">{player.red_cards}</Text>
+                <Text type="text-t2">
+                  {player.olympic
+                    ? JSON.parse(player.olympic)
+                        .map((medal) =>
+                          medal.replace("Summer-Football Men's Football-", "")
+                        )
+                        .join(", ")
+                    : "none"}
+                </Text>
+              </>
+            ))}
         </Styles.PlayerTable>
+        {!loading && players.length === 0 && <div>None</div>}
+        {loading && <div>Loading...</div>}
       </Styles.Content>
     </Styles.Container>
   );

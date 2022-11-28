@@ -18,6 +18,7 @@ export const searchPlayers = async ({
   redCardsCompare,
   olympicMedals,
   nameQuery,
+  page,
 }) => {
   const response = await axios.post(`${API_BASE}/search`, {
     games,
@@ -34,6 +35,7 @@ export const searchPlayers = async ({
     redCardsCompare,
     olympicMedals,
     nameQuery,
+    page,
   });
   return response.data;
 };
