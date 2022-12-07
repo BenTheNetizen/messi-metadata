@@ -86,6 +86,57 @@ app.post("/search", (req, res) => {
   });
 });
 
+app.post("/searchClubs", (req, res) => {
+  // return first 10 rows
+  const {
+    games,
+    gamesCompare,
+    totalMarketValue,
+    totalMarketValueCompare,
+    averageAge,
+    averageAgeCompare,
+    goals,
+    goalsCompare,
+    yellowCards,
+    yellowCardsCompare,
+    teamSize,
+    teamSizeCompare,
+    assists,
+    assistsCompare,
+    redCards,
+    redCardsCompare,
+    foreignersPercentage,
+    foreignersPercentageCompare,
+    nameQuery,
+    page,
+  } = req.body;
+  const query = `
+    SELECT pretty_name, total_market_value, average_age, foreigners_percentage, squad_size, SUM(games_played) as games_played, SUM(goals) as goals, SUM(yellow_cards) as yellow_cards, SUM(assists) as assists, SUM(red_cards) as red_cards
+    FROM club_cleaned INNER JOIN club_stats
+    ON club_cleaned.pretty_name = club_stats.club_pretty_name
+    WHERE 1=1
+      ${nameQuery ? `AND pretty_name like "%${nameQuery}%"` : ""}
+    GROUP BY club_stats.player_club_id
+    HAVING
+      ${`SUM(games_played) ${gamesCompare} ${games || 0}`}
+      AND ${`total_market_value ${totalMarketValueCompare} ${totalMarketValue || 0}`}
+      AND ${`average_age ${averageAgeCompare} ${averageAge || 0}`}
+      AND ${`SUM(goals) ${goalsCompare} ${goals || 0}`}
+      AND ${`SUM(yellow_cards) ${yellowCardsCompare} ${yellowCards || 0}`}
+      AND ${`squad_size ${teamSizeCompare} ${teamSize || 0}`}
+      AND ${`SUM(assists) ${assistsCompare} ${assists || 0}`}
+      AND ${`SUM(red_cards) ${redCardsCompare} ${redCards || 0}`}
+      AND ${`foreigners_percentage ${foreignersPercentageCompare} ${foreignersPercentage || 0}`}
+    ORDER BY pretty_name ASC
+    LIMIT 10 OFFSET ${(page - 1) * 10}`;
+  db.all(query, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

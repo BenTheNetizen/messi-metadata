@@ -46,5 +46,51 @@ export const searchPlayers = async ({
 
 export const getMinMaxYears = async () => {
   const response = await axios.get(`${API_BASE}/getYearRange`);
+}
+
+export const searchClubs = async ({
+  games,
+  gamesCompare,
+  totalMarketValue,
+  totalMarketValueCompare,
+  averageAge,
+  averageAgeCompare,
+  goals,
+  goalsCompare,
+  yellowCards,
+  yellowCardsCompare,
+  teamSize,
+  teamSizeCompare,
+  assists,
+  assistsCompare,
+  redCards,
+  redCardsCompare,
+  foreignersPercentage,
+  foreignersPercentageCompare,
+  nameQuery,
+  page,
+}) => {
+  const response = await axios.post(`${API_BASE}/searchClubs`, {
+    games,
+    gamesCompare,
+    totalMarketValue,
+    totalMarketValueCompare,
+    averageAge,
+    averageAgeCompare,
+    goals,
+    goalsCompare,
+    yellowCards,
+    yellowCardsCompare,
+    teamSize,
+    teamSizeCompare,
+    assists,
+    assistsCompare,
+    redCards,
+    redCardsCompare,
+    foreignersPercentage,
+    foreignersPercentageCompare,
+    nameQuery,
+    page,
+  });
   return response.data;
 };
