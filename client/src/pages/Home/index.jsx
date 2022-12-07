@@ -24,7 +24,7 @@ const olympicOptions = [
 const MODES = {
   PLAYER: "player",
   CLUB: "club",
-}
+};
 
 export const Home = () => {
   const [games, setGames] = useState(0);
@@ -63,11 +63,14 @@ export const Home = () => {
   const [isClubMode, setIsClubMode] = useState(false);
   const [clubs, setClubs] = useState([]);
   const [totalMarketValue, setTotalMarketValue] = useState(0);
-  const [totalMarketValueCompare, setTotalMarketValueCompare] = useState(compareOptions[0]);
+  const [totalMarketValueCompare, setTotalMarketValueCompare] = useState(
+    compareOptions[0]
+  );
   const [averageAge, setAverageAge] = useState(0);
   const [averageAgeCompare, setAverageAgeCompare] = useState(compareOptions[0]);
   const [foreignersPercentage, setForeignersPercentage] = useState(0);
-  const [foreignersPercentageCompare, setForeignersPercentageCompare] = useState(compareOptions[0]);
+  const [foreignersPercentageCompare, setForeignersPercentageCompare] =
+    useState(compareOptions[0]);
   const [teamSize, setTeamSize] = useState(0);
   const [teamSizeCompare, setTeamSizeCompare] = useState(compareOptions[0]);
 
@@ -91,7 +94,6 @@ export const Home = () => {
     const res = await API.searchClubs(params);
     setLoading(false);
     setClubs(res || []);
-    console.log('search clubs result', res);
   };
 
   const searchClubsDebounced = useCallback(
@@ -112,7 +114,7 @@ export const Home = () => {
   }, []);
 
   useEffect(() => {
-    if (!fromYear || !toYear && !isClubMode) return;
+    if (!fromYear || (!toYear && !isClubMode)) return;
     if (isClubMode) {
       searchClubsDebounced({
         games,
@@ -185,6 +187,7 @@ export const Home = () => {
     searchClubsDebounced,
     isClubMode,
   ]);
+
   useEffect(() => {
     setPage(1);
   }, [
@@ -212,28 +215,30 @@ export const Home = () => {
     teamSize,
     teamSizeCompare,
   ]);
-  console.log(players);
 
   const setClubMode = (mode) => {
-    console.log(mode);
     if (mode === MODES.PLAYER) {
       setIsClubMode(false);
     } else if (mode === MODES.CLUB) {
       setIsClubMode(true);
     }
-  }
+  };
   return (
     <Styles.Container>
       <Styles.HeaderContainer>
         <Text type="text-t1">Mode: </Text>
-        <Styles.Button 
-          onClick={() => {setClubMode(MODES.PLAYER)}}
+        <Styles.Button
+          onClick={() => {
+            setClubMode(MODES.PLAYER);
+          }}
           selected={!isClubMode}
         >
           Player
         </Styles.Button>
         <Styles.Button
-          onClick={() => {setClubMode(MODES.CLUB)}}
+          onClick={() => {
+            setClubMode(MODES.CLUB);
+          }}
           selected={isClubMode}
         >
           Club
@@ -241,131 +246,130 @@ export const Home = () => {
       </Styles.HeaderContainer>
       {isClubMode ? (
         <Styles.Content>
-        <Styles.SortFilterContainer>
-          <Styles.SortFilterColumn>
-            <NumericFilter
-              label="Games Played"
-              value={games}
-              setValue={setGames}
-              compareValue={gamesCompare}
-              setCompareValue={setGamesCompare}
-            />
-            <NumericFilter
-              label="Total Market Value (millions)"
-              value={totalMarketValue}
-              setValue={setTotalMarketValue}
-              compareValue={totalMarketValueCompare}
-              setCompareValue={setTotalMarketValueCompare}
-            />
-            <NumericFilter
-              label="Average Age"
-              value={averageAge}
-              setValue={setAverageAge}
-              compareValue={averageAgeCompare}
-              setCompareValue={setAverageAgeCompare}
-            />
-          </Styles.SortFilterColumn>
-          <Styles.SortFilterColumn>
-            <NumericFilter
-              label="Goals"
-              value={goals}
-              setValue={setGoals}
-              compareValue={goalsCompare}
-              setCompareValue={setGoalsCompare}
-            />
-            <NumericFilter
-              label="Yellow Cards"
-              value={yellowCards}
-              setValue={setYellowCards}
-              compareValue={yellowCardsCompare}
-              setCompareValue={setYellowCardsCompare}
-            />
-            <NumericFilter
-              label="Team Size"
-              value={teamSize}
-              setValue={setTeamSize}
-              compareValue={teamSizeCompare}
-              setCompareValue={setTeamSizeCompare}
-            />
-          </Styles.SortFilterColumn>
-          <Styles.SortFilterColumn>
-            <NumericFilter
-              label="Assists"
-              value={assists}
-              setValue={setAssists}
-              compareValue={assistsCompare}
-              setCompareValue={setAssistsCompare}
-            />
-            <NumericFilter
-              label="Red Cards"
-              value={redCards}
-              setValue={setRedCards}
-              compareValue={redCardsCompare}
-              setCompareValue={setRedCardsCompare}
-            />
-            <NumericFilter
-              label="Foreigners Percentage (%)"
-              value={foreignersPercentage}
-              setValue={setForeignersPercentage}
-              compareValue={foreignersPercentageCompare}
-              setCompareValue={setForeignersPercentageCompare}
-            />
-          </Styles.SortFilterColumn>
-        </Styles.SortFilterContainer>
-        <Input
-          placeholder="Search Club Name"
-          value={nameQuery}
-          onChange={(e) => setNameQuery(e.target.value)}
-        />
-        <Styles.PageContainer>
-          <button
-            disabled={page === 1}
-            onClick={() => setPage((prev) => prev - 1)}
-          >
-            {"<"}
-          </button>
-          <div>{page}</div>
-          <button
-            disabled={clubs.length !== 10}
-            onClick={() => setPage((prev) => prev + 1)}
-          >
-            {">"}
-          </button>
-        </Styles.PageContainer>
-        <Styles.ClubTable>
-          <Text type="display-h3">Club Name</Text>
-          <Text type="display-h3">Total Market Value</Text>
-          <Text type="display-h3">Average Age</Text>
-          <Text type="display-h3">Team Size</Text>
-          <Text type="display-h3">Games Played</Text>
-          <Text type="display-h3">Goals</Text>
-          <Text type="display-h3">Assists</Text>
-          <Text type="display-h3">Yellow Cards</Text>
-          <Text type="display-h3">Red Cards</Text>
-          <Text type="display-h3">Foreigners Percentage</Text>
-          {!loading &&
-            clubs.map((club) => (
-              <>
-                <Text type="text-t2">{club.pretty_name}</Text>
-                <Text type="text-t2">
-                  {club.total_market_value ? club.total_market_value : "none"}
-                </Text>
-                <Text type="text-t2">{club.average_age}</Text>
-                <Text type="text-t2">{club.squad_size}</Text>
-                <Text type="text-t2">{club.games_played}</Text>
-                <Text type="text-t2">{club.goals}</Text>
-                <Text type="text-t2">{club.assists}</Text>
-                <Text type="text-t2">{club.yellow_cards}</Text>
-                <Text type="text-t2">{club.red_cards}</Text>
-                <Text type="text-t2">{club.foreigners_percentage}</Text>
-              </>
-            ))}
-        </Styles.ClubTable>
-        {!loading && clubs.length === 0 && <div>None</div>}
-        {loading && <div>Loading...</div>}
-      </Styles.Content>
-      ) : 
-      (
+          <Styles.SortFilterContainer>
+            <Styles.SortFilterColumn>
+              <NumericFilter
+                label="Games Played"
+                value={games}
+                setValue={setGames}
+                compareValue={gamesCompare}
+                setCompareValue={setGamesCompare}
+              />
+              <NumericFilter
+                label="Total Market Value (millions)"
+                value={totalMarketValue}
+                setValue={setTotalMarketValue}
+                compareValue={totalMarketValueCompare}
+                setCompareValue={setTotalMarketValueCompare}
+              />
+              <NumericFilter
+                label="Average Age"
+                value={averageAge}
+                setValue={setAverageAge}
+                compareValue={averageAgeCompare}
+                setCompareValue={setAverageAgeCompare}
+              />
+            </Styles.SortFilterColumn>
+            <Styles.SortFilterColumn>
+              <NumericFilter
+                label="Goals"
+                value={goals}
+                setValue={setGoals}
+                compareValue={goalsCompare}
+                setCompareValue={setGoalsCompare}
+              />
+              <NumericFilter
+                label="Yellow Cards"
+                value={yellowCards}
+                setValue={setYellowCards}
+                compareValue={yellowCardsCompare}
+                setCompareValue={setYellowCardsCompare}
+              />
+              <NumericFilter
+                label="Team Size"
+                value={teamSize}
+                setValue={setTeamSize}
+                compareValue={teamSizeCompare}
+                setCompareValue={setTeamSizeCompare}
+              />
+            </Styles.SortFilterColumn>
+            <Styles.SortFilterColumn>
+              <NumericFilter
+                label="Assists"
+                value={assists}
+                setValue={setAssists}
+                compareValue={assistsCompare}
+                setCompareValue={setAssistsCompare}
+              />
+              <NumericFilter
+                label="Red Cards"
+                value={redCards}
+                setValue={setRedCards}
+                compareValue={redCardsCompare}
+                setCompareValue={setRedCardsCompare}
+              />
+              <NumericFilter
+                label="Foreigners Percentage (%)"
+                value={foreignersPercentage}
+                setValue={setForeignersPercentage}
+                compareValue={foreignersPercentageCompare}
+                setCompareValue={setForeignersPercentageCompare}
+              />
+            </Styles.SortFilterColumn>
+          </Styles.SortFilterContainer>
+          <Input
+            placeholder="Search Club Name"
+            value={nameQuery}
+            onChange={(e) => setNameQuery(e.target.value)}
+          />
+          <Styles.PageContainer>
+            <button
+              disabled={page === 1}
+              onClick={() => setPage((prev) => prev - 1)}
+            >
+              {"<"}
+            </button>
+            <div>{page}</div>
+            <button
+              disabled={clubs.length !== 10}
+              onClick={() => setPage((prev) => prev + 1)}
+            >
+              {">"}
+            </button>
+          </Styles.PageContainer>
+          <Styles.ClubTable>
+            <Text type="display-h3">Club Name</Text>
+            <Text type="display-h3">Total Market Value</Text>
+            <Text type="display-h3">Average Age</Text>
+            <Text type="display-h3">Team Size</Text>
+            <Text type="display-h3">Games Played</Text>
+            <Text type="display-h3">Goals</Text>
+            <Text type="display-h3">Assists</Text>
+            <Text type="display-h3">Yellow Cards</Text>
+            <Text type="display-h3">Red Cards</Text>
+            <Text type="display-h3">Foreigners Percentage</Text>
+            {!loading &&
+              clubs.map((club) => (
+                <>
+                  <Text type="text-t2">{club.pretty_name}</Text>
+                  <Text type="text-t2">
+                    {club.total_market_value ? club.total_market_value : "none"}
+                  </Text>
+                  <Text type="text-t2">{club.average_age}</Text>
+                  <Text type="text-t2">{club.squad_size}</Text>
+                  <Text type="text-t2">{club.games_played}</Text>
+                  <Text type="text-t2">{club.goals}</Text>
+                  <Text type="text-t2">{club.assists}</Text>
+                  <Text type="text-t2">{club.yellow_cards}</Text>
+                  <Text type="text-t2">{club.red_cards}</Text>
+                  <Text type="text-t2">{club.foreigners_percentage}</Text>
+                </>
+              ))}
+          </Styles.ClubTable>
+          {!loading && clubs.length === 0 && <div>None</div>}
+          {loading && <div>Loading...</div>}
+        </Styles.Content>
+      ) : (
         <Styles.Content>
           <Styles.SortFilterContainer>
             <Styles.SortFilterColumn>
@@ -411,33 +415,33 @@ export const Home = () => {
                 setCompareValue={setYellowCardsCompare}
               />
               <Text type="text-t2">Date Range</Text>
-            <Styles.DateRangeContainer>
-              <Select
-                options={yearOptions.filter((option) => {
-                  if (!toYear) return true;
-                  return option.value <= toYear;
-                })}
-                value={{ value: fromYear, label: fromYear }}
-                onChange={(option) => setFromYear(option.value)}
-                components={{
-                  DropdownIndicator: () => null,
-                  IndicatorSeparator: () => null,
-                }}
-              />
-              <Text type="text-t3">to</Text>
-              <Select
-                options={yearOptions.filter((option) => {
-                  if (!fromYear) return true;
-                  return option.value >= fromYear;
-                })}
-                value={{ value: toYear, label: toYear }}
-                onChange={(option) => setToYear(option.value)}
-                components={{
-                  DropdownIndicator: () => null,
-                  IndicatorSeparator: () => null,
-                }}
-              />
-            </Styles.DateRangeContainer>
+              <Styles.DateRangeContainer>
+                <Select
+                  options={yearOptions.filter((option) => {
+                    if (!toYear) return true;
+                    return option.value <= toYear;
+                  })}
+                  value={{ value: fromYear, label: fromYear }}
+                  onChange={(option) => setFromYear(option.value)}
+                  components={{
+                    DropdownIndicator: () => null,
+                    IndicatorSeparator: () => null,
+                  }}
+                />
+                <Text type="text-t3">to</Text>
+                <Select
+                  options={yearOptions.filter((option) => {
+                    if (!fromYear) return true;
+                    return option.value >= fromYear;
+                  })}
+                  value={{ value: toYear, label: toYear }}
+                  onChange={(option) => setToYear(option.value)}
+                  components={{
+                    DropdownIndicator: () => null,
+                    IndicatorSeparator: () => null,
+                  }}
+                />
+              </Styles.DateRangeContainer>
             </Styles.SortFilterColumn>
             <Styles.SortFilterColumn>
               <NumericFilter

@@ -46,7 +46,8 @@ export const searchPlayers = async ({
 
 export const getMinMaxYears = async () => {
   const response = await axios.get(`${API_BASE}/getYearRange`);
-}
+  return response.data;
+};
 
 export const searchClubs = async ({
   games,
