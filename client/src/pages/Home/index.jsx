@@ -155,6 +155,8 @@ export const Home = () => {
         olympicMedals: olympicMedals?.map((option) => option.value),
         nameQuery,
         page,
+        fromYear,
+        toYear,
       });
     }
   }, [
