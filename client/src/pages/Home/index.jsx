@@ -155,6 +155,8 @@ export const Home = () => {
         olympicMedals: olympicMedals?.map((option) => option.value),
         nameQuery,
         page,
+        fromYear,
+        toYear,
       });
     }
   }, [
@@ -216,12 +218,38 @@ export const Home = () => {
     teamSizeCompare,
   ]);
 
+  const resetFilters = () => {
+    setGames(0);
+    setGamesCompare(compareOptions[0]);
+    setGoals(0);
+    setGoalsCompare(compareOptions[0]);
+    setAssists(0);
+    setAssistsCompare(compareOptions[0]);
+    setMinutes(0);
+    setMinutesCompare(compareOptions[0]);
+    setYellowCards(0);
+    setYellowCardsCompare(compareOptions[0]);
+    setRedCards(0);
+    setRedCardsCompare(compareOptions[0]);
+    setOlympicMedals([]);
+    setNameQuery("");
+    setTotalMarketValue(0);
+    setTotalMarketValueCompare(compareOptions[0]);
+    setAverageAge(0);
+    setAverageAgeCompare(compareOptions[0]);
+    setForeignersPercentage(0);
+    setForeignersPercentageCompare(compareOptions[0]);
+    setTeamSize(0);
+    setTeamSizeCompare(compareOptions[0]);
+  };
+
   const setClubMode = (mode) => {
     if (mode === MODES.PLAYER) {
       setIsClubMode(false);
     } else if (mode === MODES.CLUB) {
       setIsClubMode(true);
     }
+    resetFilters();
   };
   return (
     <Styles.Container>
