@@ -218,7 +218,7 @@ export const Home = () => {
     teamSizeCompare,
   ]);
 
-  useEffect(() => {
+  const resetFilters = () => {
     setGames(0);
     setGamesCompare(compareOptions[0]);
     setGoals(0);
@@ -241,7 +241,7 @@ export const Home = () => {
     setForeignersPercentageCompare(compareOptions[0]);
     setTeamSize(0);
     setTeamSizeCompare(compareOptions[0]);
-  }, [isClubMode]);
+  };
 
   const setClubMode = (mode) => {
     if (mode === MODES.PLAYER) {
@@ -249,6 +249,7 @@ export const Home = () => {
     } else if (mode === MODES.CLUB) {
       setIsClubMode(true);
     }
+    resetFilters();
   };
   return (
     <Styles.Container>
