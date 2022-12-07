@@ -116,6 +116,7 @@ app.post("/searchClubs", (req, res) => {
     ON club_cleaned.pretty_name = club_stats.club_pretty_name
     WHERE 1=1
       ${nameQuery ? `AND pretty_name like "%${nameQuery}%"` : ""}
+      ${totalMarketValue > 0 ? `AND total_market_value != ''` : ""}
     GROUP BY club_stats.player_club_id
     HAVING
       ${`SUM(games_played) ${gamesCompare} ${games || 0}`}
