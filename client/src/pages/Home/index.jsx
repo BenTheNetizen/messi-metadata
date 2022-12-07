@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import _ from "lodash-es";
 import Select from "react-select";
@@ -41,6 +41,19 @@ export const Home = () => {
   const [players, setPlayers] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [minYear, setMinYear] = useState(null);
+  const [maxYear, setMaxYear] = useState(null);
+  const [fromYear, setFromYear] = useState(null);
+  const [toYear, setToYear] = useState(null);
+
+  const yearOptions = useMemo(() => {
+    if (!minYear || !maxYear) return [];
+    const years = [];
+    for (let i = minYear; i <= maxYear; i++) {
+      years.push({ value: i, label: i });
+    }
+    return years;
+  }, [minYear, maxYear]);
 
   const search = async (params) => {
     setLoading(true);
@@ -58,6 +71,16 @@ export const Home = () => {
   );
 
   useEffect(() => {
+    API.getMinMaxYears().then((res) => {
+      setMinYear(res?.minYear);
+      setMaxYear(res?.maxYear);
+      setFromYear(res?.minYear);
+      setToYear(res?.maxYear);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!fromYear || !toYear) return;
     searchDebounced({
       games,
       gamesCompare: gamesCompare.value,
@@ -73,6 +96,8 @@ export const Home = () => {
       redCardsCompare: redCardsCompare.value,
       olympicMedals: olympicMedals?.map((option) => option.value),
       nameQuery,
+      fromYear,
+      toYear,
       page,
     });
   }, [
@@ -92,6 +117,8 @@ export const Home = () => {
     nameQuery,
     searchDebounced,
     page,
+    fromYear,
+    toYear,
   ]);
   useEffect(() => {
     setPage(1);
@@ -160,6 +187,34 @@ export const Home = () => {
               compareValue={yellowCardsCompare}
               setCompareValue={setYellowCardsCompare}
             />
+            <Text type="text-t2">Date Range</Text>
+            <Styles.DateRangeContainer>
+              <Select
+                options={yearOptions.filter((option) => {
+                  if (!toYear) return true;
+                  return option.value <= toYear;
+                })}
+                value={{ value: fromYear, label: fromYear }}
+                onChange={(option) => setFromYear(option.value)}
+                components={{
+                  DropdownIndicator: () => null,
+                  IndicatorSeparator: () => null,
+                }}
+              />
+              <Text type="text-t3">to</Text>
+              <Select
+                options={yearOptions.filter((option) => {
+                  if (!fromYear) return true;
+                  return option.value >= fromYear;
+                })}
+                value={{ value: toYear, label: toYear }}
+                onChange={(option) => setToYear(option.value)}
+                components={{
+                  DropdownIndicator: () => null,
+                  IndicatorSeparator: () => null,
+                }}
+              />
+            </Styles.DateRangeContainer>
           </Styles.SortFilterColumn>
           <Styles.SortFilterColumn>
             <NumericFilter

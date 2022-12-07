@@ -50,6 +50,14 @@ export const NumericFilterContainer = styled.div`
   align-items: center;
 `;
 
+export const DateRangeContainer = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-gap: 20px;
+  align-items: center;
+`;
+
 export const PageContainer = styled.div`
   width: 100%;
   display: flex;

@@ -20,6 +20,20 @@ app.use(express.json());
 
 app.use(cors());
 
+app.get("/getYearRange", (req, res) => {
+  const query = `
+    SELECT MIN(year), MAX(year) FROM player_stats`;
+  db.all(query, (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json({
+      minYear: rows[0]["MIN(year)"],
+      maxYear: rows[0]["MAX(year)"],
+    });
+  });
+});
+
 app.post("/search", (req, res) => {
   // return first 10 rows
   const {
@@ -37,6 +51,8 @@ app.post("/search", (req, res) => {
     redCardsCompare,
     olympicMedals,
     nameQuery,
+    fromYear,
+    toYear,
     page,
   } = req.body;
   const query = `
@@ -50,6 +66,8 @@ app.post("/search", (req, res) => {
           : ""
       }
       ${nameQuery ? `AND pretty_name like "%${nameQuery}%"` : ""}
+      ${fromYear ? `AND year >= ${fromYear}` : ""}
+      ${toYear ? `AND year <= ${toYear}` : ""}
     GROUP BY player_cleaned.player_id
     HAVING
       ${`SUM(games_played) ${gamesCompare} ${games || 0}`}

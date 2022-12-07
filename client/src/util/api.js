@@ -18,6 +18,8 @@ export const searchPlayers = async ({
   redCardsCompare,
   olympicMedals,
   nameQuery,
+  fromYear,
+  toYear,
   page,
 }) => {
   const response = await axios.post(`${API_BASE}/search`, {
@@ -35,7 +37,14 @@ export const searchPlayers = async ({
     redCardsCompare,
     olympicMedals,
     nameQuery,
+    fromYear,
+    toYear,
     page,
   });
+  return response.data;
+};
+
+export const getMinMaxYears = async () => {
+  const response = await axios.get(`${API_BASE}/getYearRange`);
   return response.data;
 };
