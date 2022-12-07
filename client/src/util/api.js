@@ -39,3 +39,50 @@ export const searchPlayers = async ({
   });
   return response.data;
 };
+
+export const searchClubs = async ({
+  games,
+  gamesCompare,
+  totalMarketValue,
+  totalMarketValueCompare,
+  averageAge,
+  averageAgeCompare,
+  goals,
+  goalsCompare,
+  yellowCards,
+  yellowCardsCompare,
+  teamSize,
+  teamSizeCompare,
+  assists,
+  assistsCompare,
+  redCards,
+  redCardsCompare,
+  foreignersPercentage,
+  foreignersPercentageCompare,
+  nameQuery,
+  page,
+}) => {
+  const response = await axios.post(`${API_BASE}/searchClubs`, {
+    games,
+    gamesCompare,
+    totalMarketValue,
+    totalMarketValueCompare,
+    averageAge,
+    averageAgeCompare,
+    goals,
+    goalsCompare,
+    yellowCards,
+    yellowCardsCompare,
+    teamSize,
+    teamSizeCompare,
+    assists,
+    assistsCompare,
+    redCards,
+    redCardsCompare,
+    foreignersPercentage,
+    foreignersPercentageCompare,
+    nameQuery,
+    page,
+  });
+  return response.data;
+};

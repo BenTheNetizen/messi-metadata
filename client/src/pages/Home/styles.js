@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Text } from "../../ui";
 
 export const Container = styled.div`
   width: 100vw;
@@ -69,5 +70,42 @@ export const PlayerTable = styled.div`
   * {
     padding: 10px;
     border-bottom: 1px solid ${({ theme }) => theme.palette.black};
+  }
+`;
+
+export const ClubTable = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+
+  * {
+    padding: 10px;
+    border-bottom: 1px solid ${({ theme }) => theme.palette.black};
+  }
+`;
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  padding: 10px;
+
+  * {
+    margin: 10px;
+  }
+
+  ${Text} {
+    padding: 5px;
+  }
+`;
+
+export const Button = styled.button`
+  padding: 10px;
+  border: 1px solid ${({ theme }) => theme.palette.black};
+  border-radius: 4px;
+  background-color: ${props => props.selected ? props.theme.palette.black : props.theme.palette.white};
+  color: ${props => props.selected ? props.theme.palette.white : props.theme.palette.black};
+  cursor: pointer;
+
+  :hover {
+    background-color: ${props => props.selected ? props.theme.palette.darkGrey : props.theme.palette.grey};
   }
 `;
