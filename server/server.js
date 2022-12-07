@@ -62,7 +62,9 @@ app.post("/search", (req, res) => {
     WHERE 1=1
       ${
         olympicMedals
-          ? olympicMedals.map((medal) => `AND olympic like "%${medal}%"`)
+          ? olympicMedals
+              .map((medal) => `AND olympic like "%${medal}%"`)
+              .join(" ")
           : ""
       }
       ${nameQuery ? `AND pretty_name like "%${nameQuery}%"` : ""}
@@ -119,14 +121,18 @@ app.post("/searchClubs", (req, res) => {
     GROUP BY club_stats.player_club_id
     HAVING
       ${`SUM(games_played) ${gamesCompare} ${games || 0}`}
-      AND ${`total_market_value ${totalMarketValueCompare} ${totalMarketValue || 0}`}
+      AND ${`total_market_value ${totalMarketValueCompare} ${
+        totalMarketValue || 0
+      }`}
       AND ${`average_age ${averageAgeCompare} ${averageAge || 0}`}
       AND ${`SUM(goals) ${goalsCompare} ${goals || 0}`}
       AND ${`SUM(yellow_cards) ${yellowCardsCompare} ${yellowCards || 0}`}
       AND ${`squad_size ${teamSizeCompare} ${teamSize || 0}`}
       AND ${`SUM(assists) ${assistsCompare} ${assists || 0}`}
       AND ${`SUM(red_cards) ${redCardsCompare} ${redCards || 0}`}
-      AND ${`foreigners_percentage ${foreignersPercentageCompare} ${foreignersPercentage || 0}`}
+      AND ${`foreigners_percentage ${foreignersPercentageCompare} ${
+        foreignersPercentage || 0
+      }`}
     ORDER BY pretty_name ASC
     LIMIT 10 OFFSET ${(page - 1) * 10}`;
   db.all(query, (err, rows) => {
