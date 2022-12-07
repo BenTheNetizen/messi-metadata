@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   max-width: 1200px;
   width: 100%;
-  padding: 20px 100px 0 100px;
+  padding: 20px 100px 20px 100px;
   display: flex;
   flex-direction: column;
   flex: 1;
